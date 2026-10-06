@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>Background</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Background</h1>
+
+
+
+<style>
+h2, h3, h4 {
+border-bottom: none !important;
+}
+body {
+font-size: 17px
+}
+#TOC a {
+font-size: 17px;
+line-height: 1.5
+}
+</style>
+<div id="when-and-why-use-this-package" class="section level3">
+<h3>When and why use this package?</h3>
+<p>People make intuitive judgments about the relative causal
+responsibility of events that contributed to an outcome. Recently,
+cognitive scientists have developed computational models of these causal
+judgments. This package allows one to compute the predictions of two of
+these models. It is designed for scientists who want to test these
+models’ predictions, or for anyone curious about them.</p>
+<p>These models have a particular scope: they are focused on <em>causal
+selection</em>. Causal selection is the process by which people judge
+the relative contribution of different causes of an outcome. Causal
+selection occurs for example when you think that a lightning bolt is the
+main cause of the forest fire, and regard the presence of oxygen in the
+air as a `background factor’, even though both were necessary for the
+fire to occur. Or it occurs when you think that the presidential
+candidate won the election because he won in the swing state rather than
+because he won in his party’s stronghold (even if winning both states
+were necessary for the victory).</p>
+<p>In contrast, these models are not trying to give an account of causal
+learning (how people infer what happened in a particular case, or how
+they learn that some things cause other things in general), or an
+account of how people decide whether something is a cause or not a cause
+of an outcome. For more on these important distinctions see p.2 in <a href="https://quillienlab.github.io/Quillien%20&amp;%20Lucas%202023.pdf">this
+paper</a>.</p>
+</div>
+<div id="technical-description-of-the-model-implementations" class="section level3">
+<h3>Technical description of the model implementations</h3>
+<p>The models supported by the package are the Necessity-Sufficiency
+(NS) model (<a href="https://philpapers.org/archive/ICANAA.pdf">Icard et
+al., 2017</a>) and the Counterfactual Effect Size (CES) model (<a href="https://quillienlab.github.io/Quillien%202020%20actual%20causation.pdf">Quillien,
+2020</a>; <a href="https://quillienlab.github.io/Quillien%20&amp;%20Lucas%202023.pdf">Quillien
+&amp; Lucas, 2023</a>). See the linked papers for a formal description
+of these models. Here I discuss particular implementation details.</p>
+<p>Both models first generate a probability distribution over
+counterfactual worlds. The way this distribution is generated is
+described <a href="https://tadegquillien.github.io/causaljudgment/index.html#how-the-package-works">here</a>.
+Below I discuss the computations that are then applied on the basis of
+this distribution.</p>
+<div id="necessity-sufficiency-model" class="section level4">
+<h4>Necessity-Sufficiency model</h4>
+<p>Icard et al. (2017) posit that causal judgments are a weighted sum of
+two measures called Necessity and Sufficiency:</p>
+<p><span class="math inline">\(\kappa_{C\rightarrow E} =
+P(C)\text{Sufficiency}(C\rightarrow E) +
+(1-P(C))\text{Necessity}(C\rightarrow E)\)</span>,</p>
+<p>where <span class="math inline">\(P(\cdot)\)</span> is the
+probability distribution over possible counterfactual worlds. The
+authors do not commit to a particular way of operationalizing
+Sufficiency and Necessity, but we picked operationalizations that i)
+were based on suggestions in the original paper ii) have done a good job
+of accounting for causal judgments relative to alternative possible
+operationalizations.</p>
+<p>We compute Sufficiency as:</p>
+<p><span class="math inline">\(\text{Sufficiency}(C=c\rightarrow E=e) =
+P(E_{C=c}|C=\neg c, E=\neg e)\)</span>.</p>
+<p>In words, we condition on the counterfactual worlds where <span class="math inline">\(C\)</span> and <span class="math inline">\(E\)</span> do not take their actual-world values,
+and compute the proportion of these counterfactual worlds where a
+counterfactual intervention setting <span class="math inline">\(C\)</span> to its actual-world value ends up
+setting <span class="math inline">\(E\)</span> to its actual-world
+value.</p>
+<p>We define <span class="math inline">\(\text{Necessity}(C=c\rightarrow
+E=e)\)</span> as 1 if, in the actual world, an intervention setting
+<span class="math inline">\(C\)</span> to <span class="math inline">\(\neg c\)</span> would prevent <span class="math inline">\(E=e\)</span> from happening. Necessity is 0
+otherwise.</p>
+</div>
+<div id="counterfactual-effect-size-model" class="section level4">
+<h4>Counterfactual Effect Size model</h4>
+<p>The CES model computes the Pearson correlation between <span class="math inline">\(C=c\)</span> and <span class="math inline">\(E=e\)</span> in the distribution over
+counterfactual worlds.</p>
+<p>Our implementation of the CES model is identical to the version
+described in Quillien &amp; Lucas (2023), in settings where there is no
+confounding between <span class="math inline">\(C\)</span> and <span class="math inline">\(E\)</span>—that is, settings where <span class="math inline">\(P(E|C)=P(E|\text{Do}(C))\)</span>. Those settings
+constitute the vast majority of published experiments on causal
+judgment.</p>
+<p>In settings where there is confounding, the current implementation
+differs slightly from the model defined in Quillien &amp; Lucas (2023,
+supplementary information). In the current implementation, the
+probability distribution over counterfactual possible worlds is
+generated in a way that guarantees <span class="math inline">\(C\)</span> is independent from its non-descendants
+in the causal model (see Step 4 in <a href="https://tadegquillien.github.io/causaljudgment/index.html#how-the-package-works">the
+description here</a>). This ensures that the correlation between <span class="math inline">\(C\)</span> and <span class="math inline">\(E\)</span> across counterfactual worlds is not
+confounded.</p>
+<p>This procedure differs from the procedure proposed in the CES papers,
+which requires performing counterfactual interventions in worlds that
+are already counterfactual (I thank Shubhamkar Ayare for pointing this
+out to me). Because the new procedure is simpler (and arguably truer to
+the original spirit of the CES model), and because there are almost no
+data on people’s causal judgments in confounded cases that would help
+arbitrate between the old and the new procedure, I choose to implement
+the new procedure here.</p>
+</div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
